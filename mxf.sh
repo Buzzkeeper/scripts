@@ -26,5 +26,5 @@ fi
 
 output_file="$1.mp4"
 
-ffmpeg -i "$Video" -i "$Audio" -c:v libx264 -preset: ultrafast -crf 40 -c:a aac -b:a 128k "$output_file"
+ffmpeg -i "$Video" -i "$Audio" -c:v libx264 -crf 23 -vf format=yuv420p -maxrate 4M -bufsize 8M  -c:a aac -b:a 192k "$output_file"
 
